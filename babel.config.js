@@ -8,6 +8,7 @@ module.exports = {
             "@babel/plugin-transform-regenerator",
             "@babel/plugin-transform-async-to-generator",
           ],
+          // Needed for tree shaking
           modules: false,
         },
       ],
