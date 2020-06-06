@@ -25,7 +25,7 @@ it("should kill checkbox dialog", () => {
   const onClick = jest.fn();
   $(dialog).find("button").on("click", onClick);
   killRadio(dialog);
-  expect(dialog.querySelector("#option2")).toBeChecked();
+  expect($(dialog).find("#option2")[0]).toBeChecked();
   expect(onClick).toHaveBeenCalled();
 });
 

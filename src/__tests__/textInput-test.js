@@ -1,40 +1,35 @@
 import $ from "jquery";
-import { killDate } from "../date";
+import { killTextInput } from "../textInput";
 import { getButtonDialog } from "./fixtures";
 
 const getDialog = () => {
   const dialog = document.createElement("div");
   $(dialog).html(`
     <div>
-      <p>1. Select 25 April 2021</p>
-      <div id="date"></div>
+      <p>1. Write "Text 1" in the input field</p>
+      <input type="text">
       <p>2. Click Load</p>
       <button type="button">
         Load
       </button>
     </div>
   `);
-  // XXX jQuery UI is not working in tests
-  $(dialog).find("#date").datepicker();
-  $(dialog).find("#date").datepicker("setDate", "06/05/20");
   return dialog;
 };
 
-it("should kill date dialog", () => {
+it("should kill text input dialog", () => {
   const dialog = getDialog();
   const onClick = jest.fn();
   $(dialog).find("button").on("click", onClick);
-  killDate(dialog);
-  expect($(dialog).find("#date").datepicker("getDate")).toBe(
-    $.datepicker.parseDate("yy-mm-dd", "2021-04-25")
-  );
+  killTextInput(dialog);
+  expect($(dialog).find("input")[0]).toHaveValue("Text 1");
   expect(onClick).toHaveBeenCalled();
 });
 
-it("should skip non-date dialog", () => {
+it("should skip non-text input dialog", () => {
   const dialog = getButtonDialog();
   const onClick = jest.fn();
   $(dialog).find("button").on("click", onClick);
-  killDate(dialog);
+  killTextInput(dialog);
   expect(onClick).not.toHaveBeenCalled();
 });

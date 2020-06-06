@@ -1,38 +1,36 @@
 import $ from "jquery";
-import { killCheckbox } from "../checkbox";
+import { killTextArea } from "../textArea";
 import { getButtonDialog } from "./fixtures";
 
 const getDialog = () => {
   const dialog = document.createElement("div");
   $(dialog).html(`
     <div>
-      <p>1. Select Option 2</p>
-      <input type="checkbox" id="option1">
-      <label for="option1">Option 1</label>
-      <input type="checkbox" id="option2">
-      <label for="option2">Option 2</label>
-      <p>2. Click Load</p>
+      <p>Write at least 3 characters (currently 0)</p>
+      <textarea></textarea>
       <button type="button">
-        Load
+        Save
       </button>
     </div>
   `);
   return dialog;
 };
 
-it("should kill checkbox dialog", () => {
+it("should kill text area dialog", () => {
   const dialog = getDialog();
+  const onKeyPress = jest.fn();
   const onClick = jest.fn();
+  $(dialog).find("textarea").on("keypress", onKeyPress);
   $(dialog).find("button").on("click", onClick);
-  killCheckbox(dialog);
-  expect($(dialog).find("#option2")[0]).toBeChecked();
+  killTextArea(dialog);
+  expect(onKeyPress).toHaveBeenCalled();
   expect(onClick).toHaveBeenCalled();
 });
 
-it("should skip non-checkbox dialog", () => {
+it("should skip non-text area dialog", () => {
   const dialog = getButtonDialog();
   const onClick = jest.fn();
   $(dialog).find("button").on("click", onClick);
-  killCheckbox(dialog);
+  killTextArea(dialog);
   expect(onClick).not.toHaveBeenCalled();
 });
