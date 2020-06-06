@@ -1,14 +1,24 @@
-import { filterHidden, submitDialog } from "./common";
+import { submitDialog } from "./common";
 
-export const killProgressBarIfReady = () => {
-  $(".ui-dialog")
-    .filter(function () {
-      return filterHidden(this);
-    })
-    .each(function () {
-      // Assume a single instruction represents a button dialog
-      if ($(this).find(".ui-progressbar[aria-valuenow=100]").length) {
-        submitDialog(this);
+export const killProgressBar = (element) => {
+  if ($(element).find(".ui-progressbar").length) {
+    // Check progress on an interval
+    // Let's max out just in case
+    const intervalCount = 0;
+    const intervalMax = 100;
+    const interval = setInterval(() => {
+      if (intervalCount === intervalMax) {
+        clearInterval(interval);
+        return;
       }
-    });
+
+      if ($(element).find(".ui-progressbar[aria-valuenow=100]")) {
+        clearInterval(interval);
+        submitDialog(element);
+        return;
+      }
+
+      intervalCount++;
+    }, 1000);
+  }
 };
