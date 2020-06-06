@@ -2,6 +2,7 @@ import { killCheckbox } from "./checkbox";
 import { killRadio } from "./radio";
 import { killInspirational } from "./inspirational";
 import { killSlider } from "./slider";
+import { killSpinner } from "./spinner";
 import { killSelect } from "./select";
 import { killButton } from "./button";
 import { killTextArea } from "./textArea";
@@ -16,6 +17,7 @@ const killDialog = (element) => {
   killRadio(element);
   killInspirational(element);
   killSlider(element);
+  killSpinner(element);
   killSelect(element);
   killButton(element);
   killTextArea(element);
