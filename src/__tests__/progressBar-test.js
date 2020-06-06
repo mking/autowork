@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { killProgressBarIfReady } from "../progressBar";
-import { getButtonDialog } from "./fixtures";
+import { getButtonDialog } from "./testFixtures";
 
 const getDialog = ({ value }) => {
   const dialog = document.createElement("div");

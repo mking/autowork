@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { killInspirational } from "../inspirational";
-import { getButtonDialog } from "./fixtures";
+import { getButtonDialog } from "./testFixtures";
 
 const getDialog = () => {
   const dialog = document.createElement("div");
