@@ -15,7 +15,7 @@ npm run build
 ## Using the snippet
 
 ```
-# Copy snippet to the clipboard
+# Copy snippet to the clipboard, then paste it into the console
 cat dist/snippet.js | pbcopy
 ```
 
