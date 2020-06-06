@@ -8,15 +8,16 @@
 # Install npm packages
 npm install
 
-# Build the script
+# Build the snippet (available at dist/snippet.js)
 npm run build
-
-# You can find the snippet in the dist directory
 ```
 
 ## Using the snippet
 
-Open the console and paste the generated snippet.
+```
+# Copy snippet to the clipboard
+cat dist/snippet.js | pbcopy
+```
 
 Run `window.autowork.addListeners` to start automating work.
 
