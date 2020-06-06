@@ -3,7 +3,11 @@ module.exports = {
     [
       "@babel/preset-env",
       {
-        exclude: ["@babel/plugin-transform-regenerator"],
+        exclude: [
+          "@babel/plugin-transform-regenerator",
+          "@babel/plugin-transform-async-to-generator",
+        ],
+        modules: false,
       },
     ],
   ],
