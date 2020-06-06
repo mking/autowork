@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 export const killTextArea = (element) => {
   if ($(element).find("textarea").length) {
     const characterText = $(element).find('p:contains("characters")').text();

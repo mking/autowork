@@ -1,3 +1,4 @@
+import $ from "jquery";
 import { killCheckbox } from "./checkbox";
 import { killRadio } from "./radio";
 import { killInspirational } from "./inspirational";

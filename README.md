@@ -31,3 +31,10 @@ I want to be able to include libraries if necessary. Webpack is a straightforwar
 Note: We are assuming we are running in the "It is as if you were doing work" environment. This means we assume jQuery and jQuery UI are present.
 
 I also want to minimize the build size. For this reason, I'm using $.datepicker to parse dates, rather than something like moment.
+
+## Development
+
+```
+# Run tests
+npm test
+```

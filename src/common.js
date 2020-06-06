@@ -1,3 +1,4 @@
+import $ from "jquery";
 import escapeStringRegexp from "escape-string-regexp";
 
 export const submitDialog = (element, { prefix } = { prefix: "2. Click" }) => {

@@ -1,3 +1,4 @@
+import $ from "jquery";
 import { submitDialog } from "./common";
 
 export const killDate = (element) => {
