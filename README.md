@@ -1,8 +1,6 @@
 # Autowork
 
-Automate ["It is as if you were doing work"](https://pippinbarr.github.io/itisasifyouweredoingwork/)
-
-🤖
+🤖 Automate ["It is as if you were doing work"](https://pippinbarr.github.io/itisasifyouweredoingwork/)
 
 ## Building the snippet
 
