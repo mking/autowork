@@ -7,7 +7,7 @@ import { killButton } from "./button";
 import { killTextArea } from "./textArea";
 import { killTextInput } from "./textInput";
 import { killPromotion } from "./promotion";
-import { killProgressBar } from "./progressBar";
+import { killProgressBarIfReady } from "./progressBar";
 import { killDate } from "./date";
 
 const killDialog = (element) => {
@@ -21,29 +21,30 @@ const killDialog = (element) => {
   killTextArea(element);
   killTextInput(element);
   killPromotion(element);
-  killProgressBar(element);
+  killProgressBarIfReady(element);
   killDate(element);
 };
 
-const onDialogOpen = (event) => {
-  const element = event.target;
-  killDialogs(element);
-};
-
 export const addListeners = () => {
-  $(document.body).on("dialogopen", onDialogOpen);
+  // Reap dialogs on an interval
+  window.autowork.interval = setInterval(killDialogs, 1000);
 };
 
 export const removeListeners = () => {
-  $(document.body).off("dialogopen", onDialogOpen);
+  clearInterval(window.autowork.interval);
 };
 
-export const killDialogs = () => {
-  $(".ui-dialog")
+export const killDialogs = async () => {
+  const dialogs = $(".ui-dialog")
     .filter(function () {
       return !/display: none/.test($(this).attr("style"));
     })
-    .each(function () {
-      killDialog(this);
-    });
+    .toArray();
+
+  for (const dialog of dialogs) {
+    killDialog(dialog);
+
+    // Let's stagger our kills
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  }
 };
