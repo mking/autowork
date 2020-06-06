@@ -1,4 +1,4 @@
 module.exports = {
-  setupFilesAfterEnv: ["./src/setupTests"],
+  setupFilesAfterEnv: ["./src/__tests__/setupTests"],
   testMatch: ["**/__tests__/**/*-test.js"],
 };
