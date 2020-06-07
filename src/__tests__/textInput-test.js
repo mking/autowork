@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { killTextInput } from "../textInput";
-import { getButtonDialog } from "./testFixtures";
+import { getButtonDialog } from "./fixtures";
 
 const getDialog = () => {
   const dialog = document.createElement("div");

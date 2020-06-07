@@ -8,7 +8,6 @@ export const killDate = (element) => {
     if (dateMatch) {
       const valueText = dateMatch[1];
       const valueDate = $.datepicker.parseDate("d MM yy", valueText);
-
       $(element).find(".hasDatepicker").datepicker("setDate", valueDate);
 
       submitDialog(element);

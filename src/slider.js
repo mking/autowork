@@ -7,7 +7,7 @@ export const killSlider = (element) => {
     const sliderMatch = /^1\. Set slider to (\d+)/.exec(sliderText);
     if (sliderMatch) {
       const valueText = sliderMatch[1];
-      $(element).find(".ui-slider").slider("option", "value", valueText);
+      $(element).find(".ui-slider").slider("value", valueText);
 
       submitDialog(element);
     }

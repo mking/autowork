@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { killRadio } from "../radio";
-import { getButtonDialog } from "./testFixtures";
+import { getButtonDialog } from "./fixtures";
 
 const getDialog = () => {
   const dialog = document.createElement("div");

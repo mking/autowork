@@ -1,30 +1,39 @@
 import $ from "jquery";
-import { killInspirational } from "../inspirational";
+import { killSpinner } from "../spinner";
 import { getButtonDialog } from "./fixtures";
 
 const getDialog = () => {
   const dialog = document.createElement("div");
   $(dialog).html(`
     <div>
-      <div class="inspirational-dialog"></div>
-      <button type="button" class="ui-dialog-titlebar-close"></button>
+      <p>1. Set spinner to -8</p>
+      <input id="spinner">
+      <p>2. Click Load</p>
+      <button type="button">
+        Load
+      </button>
     </div>
   `);
+  $(dialog).find("#spinner").spinner({
+    min: -10,
+    max: 10,
+  });
   return dialog;
 };
 
-it("should kill inspirational dialog", () => {
+it("should kill spinner dialog", () => {
   const dialog = getDialog();
   const onClick = jest.fn();
   $(dialog).find("button").on("click", onClick);
-  killInspirational(dialog);
+  killSpinner(dialog);
+  expect($(dialog).find("#spinner").spinner("value")).toBe(-8);
   expect(onClick).toHaveBeenCalled();
 });
 
-it("should skip non-inspirational dialog", () => {
+it("should skip non-spinner dialog", () => {
   const dialog = getButtonDialog();
   const onClick = jest.fn();
   $(dialog).find("button").on("click", onClick);
-  killInspirational(dialog);
+  killSpinner(dialog);
   expect(onClick).not.toHaveBeenCalled();
 });
