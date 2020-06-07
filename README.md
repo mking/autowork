@@ -2,6 +2,8 @@
 
 🤖 Automate ["It is as if you were doing work"](https://pippinbarr.github.io/itisasifyouweredoingwork/)
 
+![Node CI](https://github.com/mking/autowork/workflows/Node%20CI/badge.svg)
+
 ## Building the snippet
 
 ```
