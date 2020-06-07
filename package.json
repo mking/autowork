@@ -2,11 +2,12 @@
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.config.production.js",
-    "build-debug": "webpack --config webpack.config.debug.js",
+    "build-debug-production": "webpack --config webpack.config.debug-production.js",
     "test": "jest"
   },
   "dependencies": {
-    "escape-string-regexp": "^4.0.0"
+    "escape-string-regexp": "^4.0.0",
+    "regenerator-runtime": "^0.13.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
