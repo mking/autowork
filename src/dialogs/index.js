@@ -28,16 +28,9 @@ const killDialog = (element) => {
   killDate(element);
 };
 
-export const addListeners = () => {
-  // Reap dialogs on an interval
-  window.autowork.interval = setInterval(killDialogs, 1000);
-};
-
-export const removeListeners = () => {
-  clearInterval(window.autowork.interval);
-};
-
 export const killDialogs = async () => {
+  console.log("killing dialogs");
+
   const dialogs = $(".ui-dialog")
     .filter(function () {
       return !/display: none/.test($(this).attr("style"));

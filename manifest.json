@@ -1,0 +1,31 @@
+{
+  "name": "Autowork",
+  "version": "1.0.0",
+  "description": "Automate \"It is as if you were doing work\"",
+  "homepage_url": "https://github.com/mking/autowork",
+  "manifest_version": 2,
+  "permissions": [
+    "https://pippinbarr.github.io/*",
+    "contextMenus",
+    "activeTab"
+  ],
+  "icons": {
+    "128": "images/robot-128.png"
+  },
+  "page_action": {
+    "default_icon": {
+      "128": "images/robot-128.png"
+    },
+    "default_title": "Autowork"
+  },
+  "background": {
+    "scripts": ["chrome/background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://pippinbarr.github.io/*"],
+      "js": ["chrome/contentScript.js"]
+    }
+  ]
+}
